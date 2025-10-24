@@ -51,6 +51,7 @@ import customExtensionIcon from './custom/custom.svg';
 import returnIcon from './custom/return.svg';
 import galleryIcon from './gallery/gallery.svg';
 import {APP_NAME} from '../../brand';
+//import openStreetMapImage from './openstreetmap/openstreetmap.png';
 
 export default [
     {
@@ -401,6 +402,18 @@ export default [
         tags: ['tw'],
         featured: true
         // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
+    },
+    {
+        name: '追加ブロック',
+        extensionId: 'openStreetMap',
+         extensionURL: null,  // この行を追加
+        //iconURL: openStreetMapImage,
+        //insetIconURL: openStreetMapImage,
+        description: '地図上でのシミュレーション機能',
+        featured: true,
+        disabled: false,
+        collaborator: 'OpenStreetMap',
+        internetConnectionRequired: true
     }
 ];
 
