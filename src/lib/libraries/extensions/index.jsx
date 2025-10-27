@@ -406,9 +406,7 @@ export default [
     {
         name: '追加ブロック',
         extensionId: 'openStreetMap',
-         extensionURL: null,  // この行を追加
-        //iconURL: openStreetMapImage,
-        //insetIconURL: openStreetMapImage,
+        extensionURL: null,  // この行を追加
         description: '地図上でのシミュレーション機能',
         featured: true,
         disabled: false,
