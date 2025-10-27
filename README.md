@@ -6,6 +6,61 @@ See https://docs.turbowarp.org/development/getting-started to setup the complete
 
 If you just want to play with the GUI then it's the same process as upstream scratch-gui.
 
+---
+
+## OpenStreetMap Extension Setup
+
+This project includes an OpenStreetMap extension. Follow these steps to set it up.
+
+### Setup Instructions
+
+1. **Install dependencies**
+```bash
+   npm install
+```
+
+2. **Edit extension-manager.js**
+   
+   Open `node_modules/scratch-vm/src/extension-support/extension-manager.js` and add the following line inside the `defaultBuiltinExtensions` object:
+```javascript
+   openStreetMap: () => require('../../../../src/lib/libraries/extensions/openstreetmap/index.js')
+```
+   
+   Example placement:
+```javascript
+   const defaultBuiltinExtensions = {
+       coreExample: () => require('../blocks/scratch3_core_example'),
+       pen: () => require('../extensions/scratch3_pen'),
+       wedo2: () => require('../extensions/scratch3_wedo2'),
+       music: () => require('../extensions/scratch3_music'),
+       microbit: () => require('../extensions/scratch3_microbit'),
+       text2speech: () => require('../extensions/scratch3_text2speech'),
+       translate: () => require('../extensions/scratch3_translate'),
+       // Add this line ↓
+       openStreetMap: () => require('../../../../src/lib/libraries/extensions/openstreetmap/index.js')
+   };
+```
+
+3. **Start the development server**
+```bash
+   npm start
+```
+
+### Important Notes
+
+- Since this modifies files inside `node_modules`, you will need to repeat step 2 after each `npm install`
+- Extension files are located in `src/lib/libraries/extensions/openstreetmap/`:
+  - `index.js` - Main extension file
+  - `tile-map.js` - Tile map management
+  - `tile-cache.js` - Tile cache management
+
+### Extension Features
+
+- Map display functionality
+- Coordinate conversion
+- Pathfinding (A* algorithm)
+- Sprite movement on map with real-world speed
+
 ## License
 
 TurboWarp's modifications to Scratch are licensed under the GNU General Public License v3.0. See LICENSE or https://www.gnu.org/licenses/ for details.
